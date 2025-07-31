@@ -1,0 +1,813 @@
+/* Basic Reset & Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Example font */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+    background-color: #0d47a1; /* Dark Blue - unchanged */
+    color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.logo-text { /* Added for the span text next to logo image */
+    margin-left: 5px; /* Small space between logo and text */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #90caf9; /* Lighter blue on hover */
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+.nav-toggle.active .hamburger {
+    background-color: transparent; /* Hide middle bar */
+}
+
+.nav-toggle.active .hamburger::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .hamburger::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: auto; /* Allow height to adjust based on content */
+    padding: 60px 0; /* Add top/bottom padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff; /* Default text color for the section */
+    overflow: hidden;
+}
+
+.hero-media-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Below content */
+}
+
+.hero-media-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-media-placeholder img.active {
+    opacity: 1;
+}
+
+.hero-content-study {
+    position: relative;
+    z-index: 3; /* Above images */
+    padding: 20px;
+}
+
+/* NEW: Inner container for hero content */
+.hero-inner-container {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+    padding: 30px; /* Reduced padding */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    max-width: 900px; /* Control width of the container */
+    margin: 0 auto; /* Center the container */
+    color: #333; /* Darker text for readability against light background */
+}
+
+.hero-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em; /* Reduced from 3.5em */
+    margin-bottom: 15px; /* Reduced spacing */
+    line-height: 1.2;
+    text-shadow: none; /* Remove text shadow due to new background */
+    color: #1a237e; /* Dark blue for heading */
+}
+
+.hero-section .tagline-study {
+    font-size: 1.3em; /* Reduced from 1.5em */
+    margin-bottom: 20px; /* Reduced spacing */
+    font-weight: 300;
+    text-shadow: none; /* Remove text shadow */
+    color: #3f51b5; /* Medium blue for tagline */
+}
+
+.hero-section .study-purpose,
+.hero-section .collaboration-info {
+    font-size: 1em; /* Reduced from 1.1em */
+    margin-bottom: 15px; /* Reduced spacing */
+    max-width: 700px; /* Slightly wider text */
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: none; /* Remove text shadow */
+    color: #555; /* Dark grey for body text */
+}
+
+.hero-actions-buttons {
+    margin-top: 25px; /* Reduced spacing */
+    margin-bottom: 25px; /* Reduced spacing */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Slightly reduced gap */
+}
+
+.researcher-contact {
+    margin-top: 25px; /* Reduced spacing */
+    background-color: rgba(0, 0, 0, 0.05); /* Lighter background for contact info */
+    padding: 15px 20px; /* Reduced padding */
+    border-radius: 8px;
+    display: inline-block; /* Adjust width to content */
+    color: #333; /* Ensure text is readable */
+}
+
+.researcher-contact p {
+    margin-bottom: 8px; /* Slightly more spacing */
+    text-shadow: none; /* Remove text shadow for this block if present */
+}
+
+.researcher-contact .contact-link {
+    color: #1976d2; /* Primary blue links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.researcher-contact .contact-link:hover {
+    color: #1565c0; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+
+/* General Button Styles */
+.btn {
+    display: inline-block;
+    background-color: #1976d2; /* Primary blue */
+    color: #fff;
+    padding: 10px 20px; /* Slightly reduced padding */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn.large-btn {
+    padding: 12px 25px; /* Slightly reduced padding */
+    font-size: 1.1em;
+}
+
+/* Specific button styles from original index.html */
+.btn-action-main {
+    background-color: #ff9800; /* Orange */
+    color: white;
+    padding: 12px 25px; /* Slightly reduced padding */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-action-main:hover {
+    background-color: #fb8c00; /* Darker orange on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn.btn-primary { /* for contact section */
+    background-color: #1976d2;
+}
+
+.btn.btn-primary:hover {
+    background-color: #1565c0;
+}
+
+
+/* Content Sections */
+.content-section {
+    padding: 60px 0; /* Reduced padding for more compactness */
+}
+
+.content-section.light-bg {
+    background-color: #f9f9f9;
+}
+
+.content-section h1,
+.content-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #1a237e; /* Dark blue heading */
+    margin-bottom: 35px; /* Increased spacing */
+    text-align: center;
+    font-weight: 700;
+}
+
+.content-section h2 {
+    font-size: 2.5em; /* Slightly larger */
+    margin-top: 60px; /* More space above H2s */
+}
+
+.content-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #3f51b5; /* Medium blue heading */
+    margin-top: 40px; /* Increased spacing */
+    margin-bottom: 20px; /* Increased spacing */
+    font-size: 1.8em; /* Slightly larger */
+}
+
+.content-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #5c6bc0;
+    margin-top: 35px; /* Increased spacing */
+    margin-bottom: 15px; /* Increased spacing */
+    font-size: 1.4em; /* Slightly larger */
+}
+
+.content-section p {
+    margin-bottom: 1.2em; /* Reduced spacing for paragraphs */
+    line-height: 1.7; /* Slightly reduced line height */
+    text-align: justify;
+}
+
+.content-section ul {
+    list-style: disc;
+    margin-left: 25px; /* Slightly more indent */
+    margin-bottom: 2em; /* Increased spacing for lists */
+}
+
+.content-section ul li {
+    margin-bottom: 0.5em; /* Reduced spacing between list items */
+    line-height: 1.6;
+}
+
+/* Section Grid for Text and Media */
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Make text and media span full width by default */
+    gap: 60px; /* Increased gap */
+    align-items: center;
+    margin-top: 40px; /* Increased spacing */
+    margin-bottom: 60px; /* Increased spacing */
+}
+
+.section-grid .text-content {
+    text-align: justify;
+    grid-column: 1 / -1; /* Make text content span full width */
+}
+
+.section-grid .media-content {
+    text-align: center;
+    grid-column: 1 / -1; /* Make media content span full width */
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-grid.reverse-order {
+    /* No change needed here, as the grid will now stack regardless of direction property */
+    /* The effect of reversing order for 2 columns is no longer applicable with 1 column spanning full width */
+}
+
+.image-caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 15px; /* Increased spacing */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 40px 0; /* Increased spacing */
+    font-size: 0.9em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 14px 18px; /* Increased padding */
+    text-align: left;
+}
+
+table th {
+    background-color: #e3f2fd; /* Light blue header */
+    color: #1a237e;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+table tr:hover {
+    background-color: #eef;
+}
+
+.citation {
+    font-style: italic;
+    font-size: 0.9em;
+    text-align: right;
+    color: #777;
+    margin-top: 50px; /* Increased spacing */
+    border-top: 1px dashed #ccc;
+    padding-top: 15px; /* Increased padding */
+}
+
+/* Contact Section Specifics */
+.contact-form-section {
+    background-color: #fff;
+    padding: 50px; /* Increased padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-top: 50px; /* Increased spacing */
+}
+
+.contact-form-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px; /* Increased spacing */
+    color: #555;
+}
+
+.contact-form-section .btn {
+    margin-bottom: 35px; /* Increased spacing */
+}
+
+.social-links {
+    margin-top: 25px; /* Increased spacing */
+}
+
+.social-links p {
+    font-size: 1em;
+    margin-bottom: 20px; /* Increased spacing */
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 12px; /* Slightly more margin */
+}
+
+.social-links img {
+    width: 45px; /* Slightly larger icons */
+    height: 45px;
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.main-footer {
+    background-color: #263238; /* Dark grey */
+    color: #e0e0e0;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #90caf9;
+}
+
+/* NEW: Layout for content and sidebar */
+.content-with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column for mobile */
+    gap: 30px; /* Reduced gap from 50px */
+    align-items: start; /* Align items to the top */
+}
+
+/* NEW: Main content wrapper */
+.main-content {
+    grid-column: 1; /* By default, main content takes the first column */
+}
+
+/* NEW: Static Table of Contents Sidebar */
+.static-toc-sidebar {
+    position: sticky; /* Makes the sidebar stick as you scroll */
+    top: 90px; /* Adjust based on your header height to make it stick below the header */
+    height: fit-content; /* Adjust height to content */
+    max-height: calc(100vh - 180px); /* Adjusted max-height to ensure content fits */
+    overflow-y: hidden; /* Prevent internal scrolling */
+    background-color: #e3f2fd; /* Light blue background for the sidebar */
+    border: 1px solid #90caf9; /* Light blue border */
+    border-radius: 8px;
+    padding: 15px; /* Reduced padding for compactness */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    align-self: start; /* Align to the start of the grid cell */
+    text-align: left;
+    display: none; /* Hide by default and show only on larger screens via media query */
+}
+
+.static-toc-sidebar h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em; /* Reduced for compactness */
+    color: #1a237e;
+    margin-top: 0;
+    margin-bottom: 15px; /* Reduced spacing */
+    text-align: center;
+}
+
+.static-toc-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.static-toc-sidebar ul li {
+    margin-bottom: 8px; /* Reduced spacing */
+}
+
+.static-toc-sidebar ul li a {
+    color: #1976d2; /* Professional blue link */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+    padding: 3px 0; /* Reduced padding for better click area */
+    display: block; /* Make the whole area clickable */
+    font-size: 0.95em; /* Slightly smaller font size */
+}
+
+.static-toc-sidebar ul li a:hover {
+    color: #0d47a1; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* NEW: Highlight active section in TOC */
+.static-toc-sidebar ul li a.active {
+    color: #e65100; /* Orange-red for active link - stands out! */
+    font-weight: 700;
+    background-color: rgba(255, 152, 0, 0.1); /* Very light orange background */
+    border-left: 4px solid #e65100; /* Left border for emphasis */
+    padding-left: 12px; /* Adjust padding due to border */
+    border-radius: 0 4px 4px 0; /* Rounded on the right */
+}
+
+/* NEW: Beaming CTA Section */
+.beaming-cta {
+    background: linear-gradient(45deg, #ffc107, #ffeb3b, #ffc107); /* Yellow/Orange Gradient */
+    border: 2px solid transparent; /* Changed border to transparent to remove the bluish outline */
+    border-radius: 10px;
+    padding: 10px; /* Further reduced padding from 15px */
+    margin-top: 20px; /* Added margin-top to separate from TOC list */
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+    animation: pulse-beaming 2s infinite alternate;
+    height: auto; /* Ensure height adjusts to content */
+    overflow: hidden; /* Prevent internal scrolling */
+}
+
+.beaming-cta h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em; /* Significantly reduced from 1.2em */
+    color: #333;
+    margin-bottom: 5px; /* Further reduced spacing from 10px */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    line-height: 1.1; /* Tighter line height for the heading */
+}
+
+.beaming-cta p {
+    font-size: 0.75em; /* Significantly reduced from 0.85em */
+    color: #555;
+    margin-bottom: 10px; /* Further reduced spacing from 15px */
+    line-height: 1.2; /* Tighter line height for the paragraph from 1.3 */
+    letter-spacing: -0.02em; /* Reduced space between letters like "Your" and "expertise" */
+}
+
+.btn-beaming-cta {
+    background-color: #e65100;
+    color: #fff;
+    padding: 6px 12px; /* Significantly reduced padding from 10px 20px */
+    font-size: 0.8em; /* Significantly reduced from 0.95em */
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-beaming-cta:hover {
+    background-color: #ff5722;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* NEW: Beaming Animation */
+@keyframes pulse-beaming {
+    0% {
+        box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 8px 30px rgba(255, 152, 0, 0.6), 0 0 15px rgba(255, 152, 0, 0.4); /* Stronger glow */
+        transform: scale(1.02); /* Subtle growth */
+    }
+}
+
+/* NEW: Adjustments for the original inline table of contents */
+.table-of-contents-inline {
+    background-color: #e3f2fd; /* Light blue background */
+    border: 1px solid #90caf9; /* Light blue border */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none; /* Hide desktop nav */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Below header */
+        left: 0;
+        background-color: #0d47a1;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .main-nav.nav-open {
+        display: flex; /* Show mobile nav when active */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .main-nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nav-toggle {
+        display: flex; /* Show hamburger */
+    }
+
+    .hero-section {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 40px 0; /* Add padding for content */
+    }
+
+    /* Adjustments for the new hero-inner-container on smaller screens */
+    .hero-inner-container {
+        padding: 25px; /* Reduced padding for smaller screens */
+        max-width: 90%; /* Adjust max-width */
+    }
+
+    .hero-section h1 {
+        font-size: 2.2em; /* Adjusted for smaller screens */
+    }
+
+    .hero-section .tagline-study {
+        font-size: 1.1em; /* Adjusted for smaller screens */
+    }
+
+    .hero-section .study-purpose,
+    .hero-section .collaboration-info {
+        font-size: 0.9em; /* Adjusted for smaller screens */
+    }
+
+    .section-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 30px; /* Reduced gap for mobile */
+    }
+
+    .section-grid .media-content {
+        order: -1; /* Move images/flowcharts above text on mobile for better flow */
+        margin-bottom: 20px;
+    }
+
+    .main-footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content-study {
+        padding: 25px;
+    }
+
+    .hero-actions-buttons {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 15px; /* Slightly increased gap */
+    }
+
+    /* Keep the static TOC hidden on smaller screens */
+    .static-toc-sidebar {
+        display: none;
+    }
+    /* Ensure the inline TOC is visible on smaller screens (if you keep it) */
+    .table-of-contents-inline {
+        display: block;
+    }
+}
+
+
+@media (min-width: 993px) { /* Show sidebar on larger screens */
+    .content-with-sidebar {
+        grid-template-columns: 3.5fr 1fr; /* Main content takes 3.5 parts, sidebar takes 1 part (even more width for main content) */
+        gap: 15px; /* Further reduced gap from 20px to 15px */
+    }
+    .static-toc-sidebar {
+        grid-column: 2; /* Sidebar goes into the second column */
+        display: block; /* Show the sidebar */
+    }
+    .main-content {
+        grid-column: 1; /* Main content stays in the first column */
+    }
+    /* Hide the inline TOC on larger screens when sidebar is present */
+    .table-of-contents-inline {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.6em; /* Further adjusted for very small screens */
+    }
+    .hero-section .tagline-study {
+        font-size: 1em; /* Further adjusted for very small screens */
+    }
+    .hero-section .study-purpose,
+    .hero-section .collaboration-info {
+        font-size: 0.85em; /* Further adjusted for very small screens */
+    }
+    .btn {
+        padding: 8px 15px; /* Even smaller buttons */
+        font-size: 0.85em;
+    }
+    .btn.large-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .hero-inner-container {
+        padding: 15px;
+    }
+    .btn-action-main {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    /* Adjust beaming CTA for very small screens if necessary */
+    .beaming-cta h3 {
+        font-size: 0.9em; /* Even smaller for very small screens */
+    }
+    .beaming-cta p {
+        font-size: 0.7em; /* Even smaller for very small screens */
+    }
+    .btn-beaming-cta {
+        padding: 5px 10px; /* Even smaller button for very small screens */
+        font-size: 0.75em;
+    }
+}
