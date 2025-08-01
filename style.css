@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Example font */
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
@@ -21,7 +21,7 @@ body {
 
 /* Header */
 .main-header {
-    background-color: #0d47a1; /* Dark Blue - unchanged */
+    background-color: #0d47a1;
     color: #fff;
     padding: 15px 0;
     position: sticky;
@@ -46,18 +46,18 @@ body {
 }
 
 .logo img {
-    height: 40px; /* Adjust as needed */
+    height: 40px;
     margin-right: 10px;
 }
 
-.logo-text { /* Added for the span text next to logo image */
-    margin-left: 5px; /* Small space between logo and text */
+.logo-text {
+    margin-left: 5px;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
 
 .main-nav a {
@@ -65,15 +65,17 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    padding: 5px 0;
+    white-space: nowrap;
 }
 
 .main-nav a:hover {
-    color: #90caf9; /* Lighter blue on hover */
+    color: #90caf9;
 }
 
 /* Mobile Navigation Toggle */
 .nav-toggle {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -116,7 +118,7 @@ body {
 }
 
 .nav-toggle.active .hamburger {
-    background-color: transparent; /* Hide middle bar */
+    background-color: transparent;
 }
 
 .nav-toggle.active .hamburger::before {
@@ -127,17 +129,16 @@ body {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: auto; /* Allow height to adjust based on content */
-    padding: 60px 0; /* Add top/bottom padding */
+    height: auto;
+    padding: 60px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff; /* Default text color for the section */
+    color: #fff;
     overflow: hidden;
 }
 
@@ -148,7 +149,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 1; /* Below content */
+    z-index: 1;
 }
 
 .hero-media-placeholder img {
@@ -168,89 +169,87 @@ body {
 
 .hero-content-study {
     position: relative;
-    z-index: 3; /* Above images */
+    z-index: 3;
     padding: 20px;
 }
 
-/* NEW: Inner container for hero content */
 .hero-inner-container {
-    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
-    padding: 30px; /* Reduced padding */
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-    max-width: 900px; /* Control width of the container */
-    margin: 0 auto; /* Center the container */
-    color: #333; /* Darker text for readability against light background */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 0 auto;
+    color: #333;
 }
 
 .hero-section h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3em; /* Reduced from 3.5em */
-    margin-bottom: 15px; /* Reduced spacing */
+    font-size: 1.95em;
+    margin-bottom: 15px;
     line-height: 1.2;
-    text-shadow: none; /* Remove text shadow due to new background */
-    color: #1a237e; /* Dark blue for heading */
+    text-shadow: none;
+    color: #1a237e;
 }
 
 .hero-section .tagline-study {
-    font-size: 1.3em; /* Reduced from 1.5em */
-    margin-bottom: 20px; /* Reduced spacing */
+    font-size: 1.1em;
+    margin-bottom: 20px;
     font-weight: 300;
-    text-shadow: none; /* Remove text shadow */
-    color: #3f51b5; /* Medium blue for tagline */
+    text-shadow: none;
+    color: #3f51b5;
 }
 
 .hero-section .study-purpose,
 .hero-section .collaboration-info {
-    font-size: 1em; /* Reduced from 1.1em */
-    margin-bottom: 15px; /* Reduced spacing */
-    max-width: 700px; /* Slightly wider text */
+    font-size: 1em;
+    margin-bottom: 15px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: none; /* Remove text shadow */
-    color: #555; /* Dark grey for body text */
+    text-shadow: none;
+    color: #555;
 }
 
 .hero-actions-buttons {
-    margin-top: 25px; /* Reduced spacing */
-    margin-bottom: 25px; /* Reduced spacing */
+    margin-top: 25px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Slightly reduced gap */
+    gap: 20px;
 }
 
 .researcher-contact {
-    margin-top: 25px; /* Reduced spacing */
-    background-color: rgba(0, 0, 0, 0.05); /* Lighter background for contact info */
-    padding: 15px 20px; /* Reduced padding */
+    margin-top: 25px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
     border-radius: 8px;
-    display: inline-block; /* Adjust width to content */
-    color: #333; /* Ensure text is readable */
+    display: inline-block;
+    color: #333;
 }
 
 .researcher-contact p {
-    margin-bottom: 8px; /* Slightly more spacing */
-    text-shadow: none; /* Remove text shadow for this block if present */
+    margin-bottom: 8px;
+    text-shadow: none;
 }
 
 .researcher-contact .contact-link {
-    color: #1976d2; /* Primary blue links */
+    color: #1976d2;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .researcher-contact .contact-link:hover {
-    color: #1565c0; /* Darker blue on hover */
+    color: #1565c0;
     text-decoration: underline;
 }
-
 
 /* General Button Styles */
 .btn {
     display: inline-block;
-    background-color: #1976d2; /* Primary blue */
+    background-color: #1976d2;
     color: #fff;
-    padding: 10px 20px; /* Slightly reduced padding */
+    padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
@@ -260,21 +259,20 @@ body {
 }
 
 .btn:hover {
-    background-color: #1565c0; /* Darker blue on hover */
+    background-color: #1565c0;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn.large-btn {
-    padding: 12px 25px; /* Slightly reduced padding */
+    padding: 12px 25px;
     font-size: 1.1em;
 }
 
-/* Specific button styles from original index.html */
 .btn-action-main {
-    background-color: #ff9800; /* Orange */
+    background-color: #ff9800;
     color: white;
-    padding: 12px 25px; /* Slightly reduced padding */
+    padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
@@ -284,12 +282,12 @@ body {
 }
 
 .btn-action-main:hover {
-    background-color: #fb8c00; /* Darker orange on hover */
+    background-color: #fb8c00;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.btn.btn-primary { /* for contact section */
+.btn.btn-primary {
     background-color: #1976d2;
 }
 
@@ -297,10 +295,9 @@ body {
     background-color: #1565c0;
 }
 
-
 /* Content Sections */
 .content-section {
-    padding: 60px 0; /* Reduced padding for more compactness */
+    padding: 60px 0;
 }
 
 .content-section.light-bg {
@@ -310,68 +307,68 @@ body {
 .content-section h1,
 .content-section h2 {
     font-family: 'Montserrat', sans-serif;
-    color: #1a237e; /* Dark blue heading */
-    margin-bottom: 35px; /* Increased spacing */
+    color: #1a237e;
+    margin-bottom: 35px;
     text-align: center;
     font-weight: 700;
 }
 
 .content-section h2 {
-    font-size: 2.5em; /* Slightly larger */
-    margin-top: 60px; /* More space above H2s */
+    font-size: 2.5em;
+    margin-top: 60px;
 }
 
 .content-section h3 {
     font-family: 'Montserrat', sans-serif;
-    color: #3f51b5; /* Medium blue heading */
-    margin-top: 40px; /* Increased spacing */
-    margin-bottom: 20px; /* Increased spacing */
-    font-size: 1.8em; /* Slightly larger */
+    color: #3f51b5;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
 }
 
 .content-section h4 {
     font-family: 'Montserrat', sans-serif;
     color: #5c6bc0;
-    margin-top: 35px; /* Increased spacing */
-    margin-bottom: 15px; /* Increased spacing */
-    font-size: 1.4em; /* Slightly larger */
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
 }
 
 .content-section p {
-    margin-bottom: 1.2em; /* Reduced spacing for paragraphs */
-    line-height: 1.7; /* Slightly reduced line height */
+    margin-bottom: 1.2em;
+    line-height: 1.7;
     text-align: justify;
 }
 
 .content-section ul {
     list-style: disc;
-    margin-left: 25px; /* Slightly more indent */
-    margin-bottom: 2em; /* Increased spacing for lists */
+    margin-left: 25px;
+    margin-bottom: 2em;
 }
 
 .content-section ul li {
-    margin-bottom: 0.5em; /* Reduced spacing between list items */
+    margin-bottom: 0.5em;
     line-height: 1.6;
 }
 
 /* Section Grid for Text and Media */
 .section-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Make text and media span full width by default */
-    gap: 60px; /* Increased gap */
+    grid-template-columns: 1fr;
+    gap: 60px;
     align-items: center;
-    margin-top: 40px; /* Increased spacing */
-    margin-bottom: 60px; /* Increased spacing */
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 
 .section-grid .text-content {
     text-align: justify;
-    grid-column: 1 / -1; /* Make text content span full width */
+    grid-column: 1 / -1;
 }
 
 .section-grid .media-content {
     text-align: center;
-    grid-column: 1 / -1; /* Make media content span full width */
+    grid-column: 1 / -1;
 }
 
 .responsive-img {
@@ -382,34 +379,33 @@ body {
 }
 
 .section-grid.reverse-order {
-    /* No change needed here, as the grid will now stack regardless of direction property */
-    /* The effect of reversing order for 2 columns is no longer applicable with 1 column spanning full width */
+    /* No change needed */
 }
 
 .image-caption {
     font-style: italic;
     font-size: 0.9em;
     color: #555;
-    margin-top: 15px; /* Increased spacing */
+    margin-top: 15px;
 }
 
 /* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 40px 0; /* Increased spacing */
+    margin: 40px 0;
     font-size: 0.9em;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 table th, table td {
     border: 1px solid #ddd;
-    padding: 14px 18px; /* Increased padding */
+    padding: 14px 18px;
     text-align: left;
 }
 
 table th {
-    background-color: #e3f2fd; /* Light blue header */
+    background-color: #e3f2fd;
     color: #1a237e;
     font-weight: bold;
     text-transform: uppercase;
@@ -429,47 +425,47 @@ table tr:hover {
     font-size: 0.9em;
     text-align: right;
     color: #777;
-    margin-top: 50px; /* Increased spacing */
+    margin-top: 50px;
     border-top: 1px dashed #ccc;
-    padding-top: 15px; /* Increased padding */
+    padding-top: 15px;
 }
 
 /* Contact Section Specifics */
 .contact-form-section {
     background-color: #fff;
-    padding: 50px; /* Increased padding */
+    padding: 50px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
-    margin-top: 50px; /* Increased spacing */
+    margin-top: 50px;
 }
 
 .contact-form-section p {
     font-size: 1.1em;
-    margin-bottom: 30px; /* Increased spacing */
+    margin-bottom: 30px;
     color: #555;
 }
 
 .contact-form-section .btn {
-    margin-bottom: 35px; /* Increased spacing */
+    margin-bottom: 35px;
 }
 
 .social-links {
-    margin-top: 25px; /* Increased spacing */
+    margin-top: 25px;
 }
 
 .social-links p {
     font-size: 1em;
-    margin-bottom: 20px; /* Increased spacing */
+    margin-bottom: 20px;
 }
 
 .social-links a {
     display: inline-block;
-    margin: 0 12px; /* Slightly more margin */
+    margin: 0 12px;
 }
 
 .social-links img {
-    width: 45px; /* Slightly larger icons */
+    width: 45px;
     height: 45px;
     transition: transform 0.2s ease;
 }
@@ -480,7 +476,7 @@ table tr:hover {
 
 /* Footer */
 .main-footer {
-    background-color: #263238; /* Dark grey */
+    background-color: #263238;
     color: #e0e0e0;
     padding: 30px 0;
     font-size: 0.9em;
@@ -490,7 +486,7 @@ table tr:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .footer-nav ul {
@@ -509,42 +505,42 @@ table tr:hover {
     color: #90caf9;
 }
 
-/* NEW: Layout for content and sidebar */
+/* Layout for content and sidebar */
 .content-with-sidebar {
     display: grid;
-    grid-template-columns: 1fr; /* Default to single column for mobile */
-    gap: 30px; /* Reduced gap from 50px */
-    align-items: start; /* Align items to the top */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
 }
 
-/* NEW: Main content wrapper */
 .main-content {
-    grid-column: 1; /* By default, main content takes the first column */
+    grid-column: 1;
 }
 
-/* NEW: Static Table of Contents Sidebar */
+/* Static Table of Contents Sidebar */
 .static-toc-sidebar {
-    position: sticky; /* Makes the sidebar stick as you scroll */
-    top: 90px; /* Adjust based on your header height to make it stick below the header */
-    height: fit-content; /* Adjust height to content */
-    max-height: calc(100vh - 180px); /* Adjusted max-height to ensure content fits */
-    overflow-y: hidden; /* Prevent internal scrolling */
-    background-color: #e3f2fd; /* Light blue background for the sidebar */
-    border: 1px solid #90caf9; /* Light blue border */
+    position: sticky;
+    top: 70px;
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
     border-radius: 8px;
-    padding: 15px; /* Reduced padding for compactness */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    align-self: start; /* Align to the start of the grid cell */
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    align-self: start;
     text-align: left;
-    display: none; /* Hide by default and show only on larger screens via media query */
+    display: none;
+    z-index: 10;
 }
 
 .static-toc-sidebar h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2em; /* Reduced for compactness */
+    font-size: 1em;
     color: #1a237e;
     margin-top: 0;
-    margin-bottom: 15px; /* Reduced spacing */
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -555,70 +551,79 @@ table tr:hover {
 }
 
 .static-toc-sidebar ul li {
-    margin-bottom: 8px; /* Reduced spacing */
+    margin-bottom: 8px;
 }
 
 .static-toc-sidebar ul li a {
-    color: #1976d2; /* Professional blue link */
+    color: #1976d2;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, font-weight 0.3s ease;
-    padding: 3px 0; /* Reduced padding for better click area */
-    display: block; /* Make the whole area clickable */
-    font-size: 0.95em; /* Slightly smaller font size */
+    padding: 2px 0;
+    display: block;
+    font-size: 0.85em;
 }
 
 .static-toc-sidebar ul li a:hover {
-    color: #0d47a1; /* Darker blue on hover */
+    color: #0d47a1;
     text-decoration: underline;
 }
 
-/* NEW: Highlight active section in TOC */
 .static-toc-sidebar ul li a.active {
-    color: #e65100; /* Orange-red for active link - stands out! */
+    color: #e65100;
     font-weight: 700;
-    background-color: rgba(255, 152, 0, 0.1); /* Very light orange background */
-    border-left: 4px solid #e65100; /* Left border for emphasis */
-    padding-left: 12px; /* Adjust padding due to border */
-    border-radius: 0 4px 4px 0; /* Rounded on the right */
+    background-color: rgba(255, 152, 0, 0.1);
+    border-left: 4px solid #e65100;
+    padding-left: 12px;
+    border-radius: 0 4px 4px 0;
 }
 
-/* NEW: Beaming CTA Section */
+/* Beaming CTA Section */
 .beaming-cta {
-    background: linear-gradient(45deg, #ffc107, #ffeb3b, #ffc107); /* Yellow/Orange Gradient */
-    border: 2px solid transparent; /* Changed border to transparent to remove the bluish outline */
+    background: linear-gradient(45deg, #ffc107, #ffeb3b, #ffc107);
+    border: 2px solid transparent;
     border-radius: 10px;
-    padding: 10px; /* Further reduced padding from 15px */
-    margin-top: 20px; /* Added margin-top to separate from TOC list */
+    padding: 10px;
+    margin-top: 20px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
     animation: pulse-beaming 2s infinite alternate;
-    height: auto; /* Ensure height adjusts to content */
-    overflow: hidden; /* Prevent internal scrolling */
+    height: auto;
+    overflow: visible;
+}
+
+#static-toc-list {
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 10px;
+}
+
+#static-toc-list li {
+    margin-bottom: 10px;
 }
 
 .beaming-cta h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1em; /* Significantly reduced from 1.2em */
+    font-size: 1em;
     color: #333;
-    margin-bottom: 5px; /* Further reduced spacing from 10px */
+    margin-bottom: 5px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    line-height: 1.1; /* Tighter line height for the heading */
+    line-height: 1.1;
 }
 
 .beaming-cta p {
-    font-size: 0.75em; /* Significantly reduced from 0.85em */
+    font-size: 0.75em;
     color: #555;
-    margin-bottom: 10px; /* Further reduced spacing from 15px */
-    line-height: 1.2; /* Tighter line height for the paragraph from 1.3 */
-    letter-spacing: -0.02em; /* Reduced space between letters like "Your" and "expertise" */
+    margin-bottom: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 .btn-beaming-cta {
     background-color: #e65100;
     color: #fff;
-    padding: 6px 12px; /* Significantly reduced padding from 10px 20px */
-    font-size: 0.8em; /* Significantly reduced from 0.95em */
+    padding: 6px 12px;
+    font-size: 0.8em;
     border-radius: 50px;
     font-weight: bold;
     text-transform: uppercase;
@@ -635,93 +640,168 @@ table tr:hover {
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* NEW: Beaming Animation */
 @keyframes pulse-beaming {
     0% {
         box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
         transform: scale(1);
     }
     100% {
-        box-shadow: 0 8px 30px rgba(255, 152, 0, 0.6), 0 0 15px rgba(255, 152, 0, 0.4); /* Stronger glow */
-        transform: scale(1.02); /* Subtle growth */
+        box-shadow: 0 8px 30px rgba(255, 152, 0, 0.6), 0 0 15px rgba(255, 152, 0, 0.4);
+        transform: scale(1.02);
     }
 }
 
-/* NEW: Adjustments for the original inline table of contents */
-.table-of-contents-inline {
-    background-color: #e3f2fd; /* Light blue background */
-    border: 1px solid #90caf9; /* Light blue border */
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 40px;
-    text-align: left;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+/* Mobile-specific CTA styling */
+@media (max-width: 992px) {
+    .static-toc-sidebar {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+        max-width: 180px;
+        padding: 10px;
+        background-color: rgba(227, 242, 253, 0.3);
+        border: none;
+        box-shadow: none;
+        display: block !important;
+        z-index: 100;
+    }
+
+    .static-toc-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #static-toc-list,
+    #table-of-contents-list,
+    .static-toc-sidebar h2 {
+        display: none;
+    }
+
+    .beaming-cta {
+        display: block !important;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+        max-width: 180px;
+        margin: 0;
+        z-index: 100;
+    }
+
+    .beaming-cta h3 {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .beaming-cta p {
+        font-size: 0.7em;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .btn-beaming-cta {
+        padding: 6px 10px;
+        font-size: 0.7em;
+        width: 100%;
+    }
+
+    @keyframes pulse-beaming-mobile {
+        0% {
+            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
+        }
+        100% {
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.6);
+        }
+    }
 }
 
+@media (max-width: 480px) {
+    .static-toc-sidebar {
+        right: 10px;
+        bottom: 10px;
+        max-width: 150px;
+    }
 
-/* Media Queries for Responsiveness */
+    .beaming-cta {
+        max-width: 150px;
+        padding: 8px;
+    }
+
+    .beaming-cta h3 {
+        font-size: 0.8em;
+    }
+
+    .beaming-cta p {
+        font-size: 0.6em;
+    }
+}
+
+/* Other responsive adjustments */
 @media (max-width: 992px) {
     .main-nav {
-        display: none; /* Hide desktop nav */
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 70px; /* Below header */
+        top: 70px;
         left: 0;
         background-color: #0d47a1;
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     }
 
     .main-nav.nav-open {
-        display: flex; /* Show mobile nav when active */
+        display: flex;
     }
 
     .main-nav ul {
         flex-direction: column;
         width: 100%;
         padding: 20px 0;
+        gap: 15px;
     }
 
     .main-nav ul li {
         text-align: center;
-        margin: 10px 0;
+        margin: 5px 0;
     }
 
     .nav-toggle {
-        display: flex; /* Show hamburger */
+        display: flex;
     }
 
     .hero-section {
-        height: auto; /* Allow height to adjust based on content */
-        padding: 40px 0; /* Add padding for content */
+        height: auto;
+        padding: 40px 0;
     }
 
-    /* Adjustments for the new hero-inner-container on smaller screens */
     .hero-inner-container {
-        padding: 25px; /* Reduced padding for smaller screens */
-        max-width: 90%; /* Adjust max-width */
+        padding: 25px;
+        max-width: 90%;
     }
 
     .hero-section h1 {
-        font-size: 2.2em; /* Adjusted for smaller screens */
+        font-size: 1.43em;
     }
 
     .hero-section .tagline-study {
-        font-size: 1.1em; /* Adjusted for smaller screens */
+        font-size: 0.93em;
     }
 
     .hero-section .study-purpose,
     .hero-section .collaboration-info {
-        font-size: 0.9em; /* Adjusted for smaller screens */
+        font-size: 0.9em;
     }
 
     .section-grid {
-        grid-template-columns: 1fr; /* Single column on mobile */
-        gap: 30px; /* Reduced gap for mobile */
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .section-grid .media-content {
-        order: -1; /* Move images/flowcharts above text on mobile for better flow */
+        order: -1;
         margin-bottom: 20px;
     }
 
@@ -740,74 +820,109 @@ table tr:hover {
     }
 
     .hero-actions-buttons {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-        gap: 15px; /* Slightly increased gap */
+        flex-direction: column;
+        gap: 15px;
     }
 
-    /* Keep the static TOC hidden on smaller screens */
-    .static-toc-sidebar {
-        display: none;
-    }
-    /* Ensure the inline TOC is visible on smaller screens (if you keep it) */
     .table-of-contents-inline {
-        display: block;
+        display: none;
     }
 }
 
-
-@media (min-width: 993px) { /* Show sidebar on larger screens */
+@media (min-width: 993px) {
     .content-with-sidebar {
-        grid-template-columns: 3.5fr 1fr; /* Main content takes 3.5 parts, sidebar takes 1 part (even more width for main content) */
-        gap: 15px; /* Further reduced gap from 20px to 15px */
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
     }
+    
     .static-toc-sidebar {
-        grid-column: 2; /* Sidebar goes into the second column */
-        display: block; /* Show the sidebar */
+        grid-column: 2;
+        display: block;
     }
+    
     .main-content {
-        grid-column: 1; /* Main content stays in the first column */
+        grid-column: 1;
     }
-    /* Hide the inline TOC on larger screens when sidebar is present */
+    
     .table-of-contents-inline {
         display: none;
+    }
+
+    /* Change "Table of Contents" to "On This Page" for index.html */
+    #table-of-contents-list + h2 {
+        content: "On This Page";
     }
 }
 
 @media (max-width: 480px) {
     .hero-section h1 {
-        font-size: 1.6em; /* Further adjusted for very small screens */
+        font-size: 1.04em;
     }
+    
     .hero-section .tagline-study {
-        font-size: 1em; /* Further adjusted for very small screens */
+        font-size: 0.846em;
     }
+    
     .hero-section .study-purpose,
     .hero-section .collaboration-info {
-        font-size: 0.85em; /* Further adjusted for very small screens */
-    }
-    .btn {
-        padding: 8px 15px; /* Even smaller buttons */
         font-size: 0.85em;
     }
+    
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    
     .btn.large-btn {
         padding: 10px 20px;
         font-size: 0.9em;
     }
+    
     .hero-inner-container {
         padding: 15px;
     }
+    
     .btn-action-main {
         padding: 12px 20px;
         font-size: 1em;
     }
-    /* Adjust beaming CTA for very small screens if necessary */
-    .beaming-cta h3 {
-        font-size: 0.9em; /* Even smaller for very small screens */
+}
+
+/* Navigation - Add Explore Opportunities */
+.main-nav ul {
+    gap: 15px;
+}
+
+.main-nav ul li.explore-opportunities {
+    margin-left: 10px;
+}
+
+.main-nav ul li.explore-opportunities a {
+    background-color: #ff9800;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav ul li.explore-opportunities a:hover {
+    background-color: #fb8c00;
+    color: #fff;
+}
+
+/* For mobile menu */
+@media (max-width: 992px) {
+    .main-nav ul li.explore-opportunities {
+        margin-left: 0;
+        margin-top: 10px;
     }
-    .beaming-cta p {
-        font-size: 0.7em; /* Even smaller for very small screens */
+    
+    .main-nav ul li.explore-opportunities a {
+        display: inline-block;
+        width: auto;
     }
-    .btn-beaming-cta {
-        padding: 5px 10px; /* Even smaller button for very small screens */
-        font-size: 0.75em;
-    }
+}
+
+/* Change TOC heading to "On This Page" */
+.static-toc-sidebar h2 {
+    content: "On This Page";
 }
