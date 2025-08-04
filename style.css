@@ -583,10 +583,10 @@ table tr:hover {
     background: linear-gradient(45deg, #ffc107, #ffeb3b, #ffc107);
     border: 2px solid transparent;
     border-radius: 10px;
-    padding: 12px 15px;
+    padding: 8px 15px;
     margin-top: 10px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
     animation: pulse-beaming 2s infinite alternate;
     height: auto;
     overflow: visible;
@@ -659,7 +659,7 @@ table tr:hover {
         right: 20px;
         width: auto;
         max-width: 180px;
-        padding: 10px;
+        padding: 6px;
         background-color: rgba(227, 242, 253, 0.3);
         border: none;
         box-shadow: none;
@@ -727,7 +727,7 @@ table tr:hover {
 
     .beaming-cta {
         max-width: 150px;
-        padding: 8px;
+        padding: 5px;
     }
 
     .beaming-cta h3 {
