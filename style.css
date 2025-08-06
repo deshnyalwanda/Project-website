@@ -140,6 +140,7 @@ body {
     text-align: center;
     color: #fff;
     overflow: hidden;
+    width: 100%;
 }
 
 .hero-media-placeholder {
@@ -171,6 +172,7 @@ body {
     position: relative;
     z-index: 3;
     padding: 20px;
+    width: 100%;
 }
 
 .hero-inner-container {
@@ -827,6 +829,21 @@ table tr:hover {
     .table-of-contents-inline {
         display: none;
     }
+
+    /* New styles for full-width header and hero on mobile */
+    .main-header {
+        padding: 15px 20px; /* Match container padding */
+    }
+
+    .hero-media-placeholder {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .hero-content-study {
+        padding: 20px;
+    }
 }
 
 @media (min-width: 993px) {
@@ -885,6 +902,15 @@ table tr:hover {
     .btn-action-main {
         padding: 12px 20px;
         font-size: 1em;
+    }
+
+    /* Ensure full width for header and hero on smallest screens */
+    .main-header .container {
+        padding: 0 15px;
+    }
+
+    .hero-section {
+        padding: 30px 0;
     }
 }
 
