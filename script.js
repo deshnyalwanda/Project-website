@@ -1,47 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle functionality
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mainNav.classList.toggle('active');
-            
-            // Toggle hamburger to X
-            const spans = this.querySelectorAll('span');
-            if (mainNav.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = '';
-                spans[1].style.opacity = '';
-                spans[2].style.transform = '';
-            }
-        });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('.main-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                menuToggle.classList.remove('active');
-                const spans = menuToggle.querySelectorAll('span');
-                spans[0].style.transform = '';
-                spans[1].style.opacity = '';
-                spans[2].style.transform = '';
-            });
-        });
-    }
-
     // Smooth scrolling for navigation links
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
+
+            // Close mobile menu after clicking
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if (navToggle.classList.contains('active')) {
+                mainNav.classList.remove('nav-open');
+                navToggle.classList.remove('active');
+            }
         });
+    });
+
+    // Toggle for mobile navigation
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    navToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('nav-open');
+        navToggle.classList.toggle('active'); // Add/remove active class for hamburger animation
     });
 
     // Google Form button functionality for the "Fill the Form" button in the hero section
@@ -80,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutStudyBtn = document.getElementById('aboutStudyBtn');
     if (aboutStudyBtn) {
         aboutStudyBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default link behavior
+            // Check if on index.html, then scroll to #home, otherwise go to index.html#home
             if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
                 document.querySelector('#home').scrollIntoView({
                     behavior: 'smooth'
@@ -109,168 +93,101 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Background image cycling for the hero section (only on index.html)
     const heroMediaPlaceholder = document.querySelector('.hero-media-placeholder');
-    if (heroMediaPlaceholder) {
+    if (heroMediaPlaceholder) { // Only run if hero-media-placeholder exists (i.e., on index.html)
         const bgImages = heroMediaPlaceholder.querySelectorAll('.hero-bg-image');
         let currentImageIndex = 0;
 
+        // Ensure the first image is active on load
         if (bgImages.length > 0) {
             bgImages[currentImageIndex].classList.add('active');
         }
 
         function changeBackgroundImage() {
+            // Remove 'active' class from current image
             bgImages[currentImageIndex].classList.remove('active');
+
+            // Increment index, reset if at the end
             currentImageIndex = (currentImageIndex + 1) % bgImages.length;
+
+            // Add 'active' class to the next image
             bgImages[currentImageIndex].classList.add('active');
         }
 
+        // Change image every 7 seconds (7000 milliseconds)
         setInterval(changeBackgroundImage, 7000);
     }
 
+
     // Dynamic Static Table of Contents Logic
-    const staticTocList = document.getElementById('static-toc-list') || document.getElementById('table-of-contents-list');
+    const staticTocList = document.getElementById('static-toc-list');
     let sections;
 
+    // Determine sections based on the current page
+    // Using window.location.pathname to check the current file
     if (window.location.pathname.includes('supply-chain.html')) {
-        sections = document.querySelectorAll('.main-content h2[id]');
+        sections = document.querySelectorAll('.main-content h2[id]'); // Target h2 elements with an ID
     } else if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
-        sections = document.querySelectorAll('section[id]');
+        sections = document.querySelectorAll('.main-content h2[id]'); // Target h2 elements with an ID (Understanding, Kenya's Journey, Contact)
     }
 
-    if (staticTocList && sections && sections.length > 0) {
-        // Only create TOC items if not on mobile
-        if (window.innerWidth > 768) {
-            sections.forEach(section => {
-                const listItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = `#${section.id}`;
-                link.className = 'toc-link';
-                
-                if (window.location.pathname.includes('supply-chain.html')) {
-                    link.textContent = section.textContent.split(': ')[0];
-                } else {
-                    // For index.html, use the simplified section names
-                    const sectionId = section.id;
-                    let sectionName = '';
-                    switch(sectionId) {
-                        case 'home':
-                            sectionName = '1. Home';
-                            break;
-                        case 'understanding-nuclear':
-                            sectionName = '2. Nuclear Power Explained';
-                            break;
-                        case 'kenyas-journey':
-                            sectionName = '3. Kenya\'s Nuclear Journey';
-                            break;
-                        case 'key-opportunities':
-                            sectionName = '4. Supply Chain Opportunities';
-                            break;
-                        case 'contact':
-                            sectionName = '5. Contact & Participation';
-                            break;
-                        default:
-                            sectionName = section.textContent;
-                    }
-                    link.textContent = sectionName;
-                }
 
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+    if (staticTocList && sections.length > 0) { // This condition will now be false for index.html's static sidebar
+        // Populate the static TOC
+        sections.forEach(section => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `#${section.id}`;
+            // For supply-chain.html, extract title before ':'
+            if (window.location.pathname.includes('supply-chain.html')) {
+                link.textContent = section.textContent.split(': ')[0];
+            } else {
+                link.textContent = section.textContent; // For index.html, use full H2 text
+            }
+
+
+            // Smooth scroll for static TOC links
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-
-                listItem.appendChild(link);
-                staticTocList.appendChild(listItem);
             });
 
-            const updateActiveTocLink = () => {
-                if (window.innerWidth <= 768) return; // Skip on mobile
-                
-                let currentActive = null;
-                for (let i = sections.length - 1; i >= 0; i--) {
-                    const section = sections[i];
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= window.innerHeight / 3 && rect.bottom >= 0) {
-                        currentActive = section.id;
-                        break;
-                    }
+            listItem.appendChild(link);
+            staticTocList.appendChild(listItem);
+        });
+
+        // Function to update the active link
+        const updateActiveTocLink = () => {
+            let currentActive = null;
+            // Iterate sections in reverse to find the closest one from the top of the viewport
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                const rect = section.getBoundingClientRect();
+                // If the section's top is visible or slightly above the viewport
+                // Adjust 100px for header height and some scroll margin
+                if (rect.top <= window.innerHeight / 3 && rect.bottom >= 0) {
+                    currentActive = section.id;
+                    break;
                 }
-
-                document.querySelectorAll('.toc-link').forEach(link => {
-                    link.classList.remove('active');
-                    link.classList.remove('hover-active');
-                });
-
-                if (currentActive) {
-                    const activeLink = document.querySelector(`.toc-link[href="#${currentActive}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-            };
-
-            window.addEventListener('scroll', updateActiveTocLink);
-            window.addEventListener('load', updateActiveTocLink);
-        }
-    }
-
-    // Handle mobile behavior for the beaming CTA
-    const beamingCta = document.querySelector('.beaming-cta');
-    if (beamingCta) {
-        function updateBeamingCtaPosition() {
-            if (window.innerWidth <= 768) {
-                // Mobile behavior
-                beamingCta.style.position = 'fixed';
-                beamingCta.style.bottom = '15px';
-                beamingCta.style.right = '15px';
-                beamingCta.style.zIndex = '1000';
-                
-                // Scale based on screen size
-                if (window.innerWidth <= 480) {
-                    beamingCta.style.maxWidth = '130px';
-                    beamingCta.style.padding = '6px 10px';
-                    beamingCta.querySelector('h3').style.fontSize = '0.9em';
-                    beamingCta.querySelector('p').style.fontSize = '0.7em';
-                    beamingCta.querySelector('button').style.fontSize = '0.7em';
-                } else {
-                    beamingCta.style.maxWidth = '150px';
-                    beamingCta.style.padding = '8px 12px';
-                    beamingCta.querySelector('h3').style.fontSize = '0.9em';
-                    beamingCta.querySelector('p').style.fontSize = '0.7em';
-                    beamingCta.querySelector('button').style.fontSize = '0.7em';
-                }
-            } else {
-                // Desktop behavior
-                beamingCta.style.position = '';
-                beamingCta.style.bottom = '';
-                beamingCta.style.right = '';
-                beamingCta.style.zIndex = '';
-                beamingCta.style.maxWidth = '';
-                beamingCta.style.padding = '';
             }
-        }
 
-        // Initialize position
-        updateBeamingCtaPosition();
-        
-        // Update on resize
-        window.addEventListener('resize', updateBeamingCtaPosition);
+            // Remove active class from all links
+            document.querySelectorAll('#static-toc-list a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the current section's link
+            if (currentActive) {
+                const activeLink = document.querySelector(`#static-toc-list a[href="#${currentActive}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        };
+
+        // Event listeners for scroll and load
+        window.addEventListener('scroll', updateActiveTocLink);
+        window.addEventListener('load', updateActiveTocLink); // Set initial active link on load
     }
-
-    // Make all images responsive
-    document.querySelectorAll('img').forEach(img => {
-        img.style.maxWidth = '100%';
-        img.style.height = 'auto';
-    });
-
-    // Prevent horizontal scrolling
-    function preventHorizontalScroll() {
-        document.body.style.overflowX = 'hidden';
-        document.documentElement.style.overflowX = 'hidden';
-    }
-    
-    preventHorizontalScroll();
-    window.addEventListener('resize', preventHorizontalScroll);
 });
